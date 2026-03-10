@@ -3,26 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Biblioteca de Formatos de Criativos</title>
+<title>Biblioteca de Formatos de Criativos v2</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
 
 :root {
-  --bg: #0d0d0d;
-  --surface: #161616;
-  --card: #1e1e1e;
-  --border: #2c2c2c;
-  --border2: #3a3a3a;
+  --bg: #0c0c0c;
+  --surface: #141414;
+  --card: #1a1a1a;
+  --border: #252525;
+  --border2: #333;
   --red: #e63946;
-  --red-dim: rgba(230,57,70,0.12);
-  --red-border: rgba(230,57,70,0.3);
   --yellow: #f4c542;
   --green: #3ddc84;
-  --blue: #4fc3f7;
-  --purple: #ce93d8;
+  --blue: #5bc8f5;
+  --purple: #c084fc;
+  --orange: #fb923c;
   --text: #f0f0f0;
-  --muted: #777;
-  --muted2: #555;
+  --muted: #666;
+  --muted2: #444;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -35,1008 +34,704 @@ body {
   min-height: 100vh;
 }
 
-/* ── HEADER ── */
+/* HEADER */
 header {
   position: sticky; top: 0; z-index: 200;
-  background: rgba(13,13,13,0.95);
-  backdrop-filter: blur(12px);
+  background: rgba(12,12,12,0.96);
+  backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border);
-  padding: 14px 28px;
-  display: flex; align-items: center; gap: 20px;
+  padding: 12px 24px;
+  display: flex; align-items: center; gap: 16px;
 }
-
-.logo-text {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 22px;
-  letter-spacing: 3px;
-  color: var(--red);
-  white-space: nowrap;
-}
-.logo-text span { color: var(--text); }
-
-.header-right {
-  margin-left: auto;
-  display: flex; align-items: center; gap: 12px;
-}
-
+.logo { font-family: 'Bebas Neue', sans-serif; font-size: 20px; letter-spacing: 3px; color: var(--red); white-space: nowrap; }
+.logo span { color: var(--text); }
 .search {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  padding: 7px 14px;
-  color: var(--text);
-  font-family: 'DM Sans', sans-serif;
-  font-size: 13px;
-  width: 200px;
-  outline: none;
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 6px; padding: 7px 14px; color: var(--text);
+  font-family: 'DM Sans', sans-serif; font-size: 13px; width: 220px; outline: none;
   transition: border-color 0.2s;
 }
 .search:focus { border-color: var(--red); }
 .search::placeholder { color: var(--muted2); }
-
-.count-badge {
-  font-family: 'DM Mono', monospace;
-  font-size: 11px;
-  color: var(--muted);
-  letter-spacing: 1px;
-  white-space: nowrap;
+.header-right { margin-left: auto; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.badge {
+  font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 1px;
+  text-transform: uppercase; padding: 4px 10px; border-radius: 4px;
+  border: 1px solid var(--border); color: var(--muted); white-space: nowrap;
 }
 
-/* ── MAIN ── */
-.main {
-  max-width: 1320px;
-  margin: 0 auto;
-  padding: 36px 28px 80px;
+/* FILTERS */
+.filters {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 10px 24px;
+  display: flex; gap: 6px; flex-wrap: wrap; align-items: center;
 }
+.filter-btn {
+  font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 1px;
+  text-transform: uppercase; padding: 5px 12px; border-radius: 4px;
+  border: 1px solid var(--border); color: var(--muted); cursor: pointer;
+  transition: all 0.15s; background: transparent; white-space: nowrap;
+}
+.filter-btn:hover { border-color: var(--border2); color: var(--text); }
+.filter-btn.active { background: var(--red); border-color: var(--red); color: #fff; }
 
-/* ── HERO ── */
-.hero {
-  margin-bottom: 48px;
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 24px;
-  flex-wrap: wrap;
-}
+/* MAIN */
+.main { max-width: 1400px; margin: 0 auto; padding: 32px 24px 80px; }
 
-.hero-title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 72px;
-  line-height: 0.9;
-  letter-spacing: 2px;
-}
-.hero-title .accent { color: var(--red); }
+/* HERO */
+.hero { margin-bottom: 36px; }
+.hero-title { font-family: 'Bebas Neue', sans-serif; font-size: 60px; letter-spacing: 2px; line-height: 0.9; margin-bottom: 8px; }
+.hero-title em { color: var(--red); font-style: normal; }
+.hero-sub { font-size: 13px; color: var(--muted); line-height: 1.7; max-width: 520px; }
+.hero-sub strong { color: #aaa; }
 
-.hero-sub {
-  font-size: 13px;
-  color: var(--muted);
-  line-height: 1.8;
-  max-width: 360px;
-  padding-bottom: 8px;
-}
-.hero-sub strong { color: var(--text); }
-
-/* ── STATS ROW ── */
-.stats {
-  display: flex;
-  gap: 2px;
-  margin-bottom: 40px;
-}
-.stat-item {
-  flex: 1;
-  background: var(--card);
-  border: 1px solid var(--border);
-  padding: 16px 20px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
+/* STATS */
+.stats { display: flex; gap: 2px; margin-bottom: 36px; }
+.stat-item { flex: 1; background: var(--card); border: 1px solid var(--border); padding: 14px 18px; }
 .stat-item:first-child { border-radius: 8px 0 0 8px; }
 .stat-item:last-child { border-radius: 0 8px 8px 0; }
-.stat-num {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 36px;
-  line-height: 1;
-  color: var(--red);
-}
-.stat-label {
-  font-size: 11px;
-  color: var(--muted);
-  text-transform: uppercase;
-  letter-spacing: 1.2px;
-  font-family: 'DM Mono', monospace;
-  line-height: 1.5;
-}
+.stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 32px; color: var(--red); line-height: 1; }
+.stat-label { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; font-family: 'DM Mono', monospace; }
 
-/* ── FORMAT COLUMNS (MAIN GRID) ── */
-.columns {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 12px;
-}
+/* GRID */
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 10px; }
 
-/* ── FORMAT CARD (pai) ── */
-.format-card {
-  background: var(--surface);
+/* FORMAT CARD */
+.fcard {
+  background: var(--card);
   border: 1px solid var(--border);
   border-radius: 10px;
   overflow: hidden;
   transition: border-color 0.2s, box-shadow 0.2s;
-  display: flex;
-  flex-direction: column;
+  display: flex; flex-direction: column;
 }
-.format-card:hover {
-  border-color: var(--border2);
-  box-shadow: 0 4px 24px rgba(0,0,0,0.4);
-}
+.fcard:hover { border-color: var(--border2); box-shadow: 0 4px 20px rgba(0,0,0,0.5); }
+.fcard-top-bar { height: 3px; background: var(--c, var(--red)); }
 
-.format-header {
-  padding: 18px 20px 14px;
+.fcard-header {
+  padding: 16px 18px 12px;
   cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  position: relative;
 }
+.fcard-toprow {
+  display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;
+}
+.fcard-num { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--c, var(--red)); letter-spacing: 1.5px; text-transform: uppercase; }
+.fcard-icon { font-size: 16px; }
+.fcard-name { font-family: 'Bebas Neue', sans-serif; font-size: 20px; letter-spacing: 1.5px; line-height: 1.1; margin-bottom: 6px; }
+.fcard-desc { font-size: 12px; color: var(--muted); line-height: 1.6; margin-bottom: 10px; }
+.fcard-footer { display: flex; align-items: center; justify-content: space-between; }
+.sub-count { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--muted2); }
+.toggle-arrow { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--muted2); transition: transform 0.25s; }
+.fcard.open .toggle-arrow { transform: rotate(180deg); }
 
-.format-top-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
+/* SUBS */
+.sub-list { display: none; flex-direction: column; border-top: 1px solid var(--border); }
+.fcard.open .sub-list { display: flex; }
 
-.format-num {
-  font-family: 'DM Mono', monospace;
-  font-size: 10px;
-  font-weight: 500;
-  color: var(--red);
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
-
-.format-icon {
-  font-size: 18px;
-  line-height: 1;
-}
-
-.format-name {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 22px;
-  letter-spacing: 1.5px;
-  color: var(--text);
-  line-height: 1.1;
-}
-
-.format-desc {
-  font-size: 12px;
-  color: var(--muted);
-  line-height: 1.6;
-}
-
-.format-meta {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 4px;
-}
-
-.sub-count {
-  font-family: 'DM Mono', monospace;
-  font-size: 10px;
-  color: var(--muted2);
-  letter-spacing: 0.5px;
-}
-
-.toggle-icon {
-  font-size: 12px;
-  color: var(--muted2);
-  transition: transform 0.3s;
-  font-family: 'DM Mono', monospace;
-}
-.format-card.open .toggle-icon {
-  transform: rotate(180deg);
-}
-
-/* left bar accent by color */
-.format-card::before {
-  content: '';
-  display: block;
-  height: 3px;
-  background: var(--card-color, var(--red));
-  border-radius: 0;
-}
-
-/* ── SUB-FORMATS ── */
-.sub-list {
-  display: none;
-  flex-direction: column;
-  border-top: 1px solid var(--border);
-}
-.format-card.open .sub-list {
-  display: flex;
-}
-
-.sub-item {
-  padding: 12px 20px;
-  border-bottom: 1px solid var(--border);
-  cursor: pointer;
-  transition: background 0.15s;
-  position: relative;
-}
+.sub-item { padding: 11px 18px; border-bottom: 1px solid var(--border); cursor: pointer; transition: background 0.12s; }
 .sub-item:last-child { border-bottom: none; }
-.sub-item:hover { background: rgba(255,255,255,0.03); }
-.sub-item.active-sub { background: var(--red-dim); }
+.sub-item:hover { background: rgba(255,255,255,0.025); }
 
-.sub-header {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 0;
-}
+.sub-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
+.sub-nn { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--muted2); flex-shrink: 0; margin-top: 2px; }
+.sub-name { font-size: 13px; font-weight: 600; color: var(--text); line-height: 1.3; flex: 1; }
+.sub-arr { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--muted2); flex-shrink: 0; transition: transform 0.2s; }
+.sub-item.open .sub-arr { transform: rotate(180deg); }
 
-.sub-num-name {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-}
+.sub-body { display: none; margin-top: 10px; display: none; flex-direction: column; gap: 10px; }
+.sub-item.open .sub-body { display: flex; }
 
-.sub-n {
-  font-family: 'DM Mono', monospace;
-  font-size: 9px;
-  color: var(--muted2);
-  letter-spacing: 0.5px;
-  flex-shrink: 0;
-}
-
-.sub-name {
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--text);
-  line-height: 1.3;
-}
-
-.sub-expand-icon {
-  font-size: 10px;
-  color: var(--muted2);
-  flex-shrink: 0;
-  margin-top: 2px;
-  transition: transform 0.2s;
-  font-family: 'DM Mono', monospace;
-}
-.sub-item.expanded .sub-expand-icon { transform: rotate(180deg); }
-
-/* sub detail */
-.sub-detail {
-  display: none;
-  margin-top: 12px;
-  display: none;
-  flex-direction: column;
-  gap: 10px;
-}
-.sub-item.expanded .sub-detail { display: flex; }
-
-.detail-row {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-}
-
-.detail-key {
-  font-family: 'DM Mono', monospace;
-  font-size: 9px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--muted2);
-}
-
-.detail-val {
-  font-size: 12px;
-  color: #bbb;
-  line-height: 1.65;
-}
-
+.drow { display: flex; flex-direction: column; gap: 3px; }
+.dk { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 1.2px; text-transform: uppercase; color: var(--muted2); }
+.dv { font-size: 12px; color: #bbb; line-height: 1.65; }
 .hook-box {
-  background: rgba(0,0,0,0.3);
-  border: 1px solid var(--border);
-  border-left: 2px solid var(--red);
-  border-radius: 4px;
-  padding: 9px 12px;
-  font-size: 12px;
-  font-style: italic;
-  color: #c0c0c0;
-  line-height: 1.6;
+  background: rgba(0,0,0,0.4); border: 1px solid var(--border);
+  border-left: 2px solid var(--c, var(--red));
+  border-radius: 4px; padding: 9px 12px;
+  font-size: 12px; font-style: italic; color: #c0c0c0; line-height: 1.6;
 }
-
-.pill {
-  display: inline-block;
-  font-family: 'DM Mono', monospace;
-  font-size: 9px;
-  font-weight: 500;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  padding: 2px 8px;
-  border-radius: 3px;
-  border: 1px solid;
-  margin-top: 2px;
+.tipo-pill {
+  display: inline-block; font-family: 'DM Mono', monospace; font-size: 9px;
+  font-weight: 500; letter-spacing: 1px; text-transform: uppercase;
+  padding: 2px 8px; border-radius: 3px; border: 1px solid; margin-top: 2px;
 }
-.pill-video { color: #4fc3f7; border-color: rgba(79,195,247,0.3); background: rgba(79,195,247,0.08); }
-.pill-image { color: #ce93d8; border-color: rgba(206,147,216,0.3); background: rgba(206,147,216,0.08); }
-.pill-text { color: #f4c542; border-color: rgba(244,197,66,0.3); background: rgba(244,197,66,0.08); }
-.pill-misto { color: #3ddc84; border-color: rgba(61,220,132,0.3); background: rgba(61,220,132,0.08); }
+.t-video { color: #5bc8f5; border-color: rgba(91,200,245,0.3); background: rgba(91,200,245,0.07); }
+.t-imagem { color: #c084fc; border-color: rgba(192,132,252,0.3); background: rgba(192,132,252,0.07); }
+.t-misto { color: #3ddc84; border-color: rgba(61,220,132,0.3); background: rgba(61,220,132,0.07); }
 
-/* search highlight */
-.hl { background: rgba(230,57,70,0.35); border-radius: 2px; padding: 0 1px; }
+/* empty */
+.empty { grid-column: 1/-1; text-align: center; color: var(--muted); padding: 80px 0; font-size: 14px; }
 
-/* empty state */
-.empty {
-  grid-column: 1/-1;
-  text-align: center;
-  color: var(--muted);
-  padding: 80px 0;
-  font-size: 14px;
-}
-
-/* scrollbar */
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: var(--bg); }
-::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 3px; }
+/* HL */
+.hl { background: rgba(230,57,70,0.3); border-radius: 2px; padding: 0 1px; }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="logo-text">CRIATIVOS<span>.LIB</span></div>
-  <input class="search" id="searchInput" type="text" placeholder="Buscar formato ou sub-formato…" oninput="doSearch()">
+  <div class="logo">CRIATIVOS<span>.LIB</span></div>
+  <input class="search" id="searchInput" type="text" placeholder="Buscar formato…" oninput="doSearch()">
   <div class="header-right">
-    <div class="count-badge" id="countBadge">10 FORMATOS · 80+ SUB-FORMATOS</div>
+    <div class="badge" id="countBadge">18 FORMATOS</div>
+    <div class="badge">120+ SUB-FORMATOS</div>
   </div>
 </header>
 
+<div class="filters" id="filters">
+  <button class="filter-btn active" data-filter="all" onclick="setFilter('all',this)">TODOS</button>
+  <button class="filter-btn" data-filter="video" onclick="setFilter('video',this)">📹 VÍDEO</button>
+  <button class="filter-btn" data-filter="imagem" onclick="setFilter('imagem',this)">🖼️ IMAGEM</button>
+  <button class="filter-btn" data-filter="misto" onclick="setFilter('misto',this)">🔀 MISTO</button>
+  <button class="filter-btn" data-filter="topo" onclick="setFilter('topo',this)">TOPO</button>
+  <button class="filter-btn" data-filter="meio" onclick="setFilter('meio',this)">MEIO</button>
+  <button class="filter-btn" data-filter="fundo" onclick="setFilter('fundo',this)">FUNDO</button>
+</div>
+
 <div class="main">
   <div class="hero">
-    <div>
-      <div class="hero-title">BIBLIOTECA DE<br><span class="accent">FORMATOS</span></div>
-    </div>
-    <div class="hero-sub">
-      Formatos-pai de criativos validados + sub-formatos específicos prontos para testar e escalar no Meta Ads e TikTok.<br><strong>Clique no formato para expandir. Clique no sub-formato para ver o roteiro.</strong>
-    </div>
+    <div class="hero-title">BIBLIOTECA DE<br><em>FORMATOS</em> v2</div>
+    <div class="hero-sub">18 formatos-pai · 120+ sub-formatos validados · Meta Ads + TikTok.<br><strong>Clique no formato para expandir. Clique no sub-formato para ver o roteiro.</strong></div>
   </div>
 
   <div class="stats">
-    <div class="stat-item">
-      <div class="stat-num">10</div>
-      <div class="stat-label">Formatos<br>Principais</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">80+</div>
-      <div class="stat-label">Sub-formatos<br>Validados</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">3</div>
-      <div class="stat-label">Tipos de<br>Mídia</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">∞</div>
-      <div class="stat-label">Variações<br>Possíveis</div>
-    </div>
+    <div class="stat-item"><div class="stat-num">18</div><div class="stat-label">Formatos</div></div>
+    <div class="stat-item"><div class="stat-num">120+</div><div class="stat-label">Sub-formatos</div></div>
+    <div class="stat-item"><div class="stat-num">3</div><div class="stat-label">Tipos mídia</div></div>
+    <div class="stat-item"><div class="stat-num">∞</div><div class="stat-label">Variações</div></div>
   </div>
 
-  <div class="columns" id="grid"></div>
+  <div class="grid" id="grid"></div>
 </div>
 
 <script>
-const FORMATS = [
-  {
-    id: 1,
-    icon: "🎤",
-    name: "TALKING HEAD",
-    color: "#e63946",
-    desc: "Pessoa falando direto para câmera. O formato mais escalável e versátil. Prova, venda e educa ao mesmo tempo.",
-    tipo: "video",
-    subs: [
-      {
-        name: "Depoimento Simples",
-        tipo: "video",
-        quando: "Prova social. Fundo de funil, remarketing.",
-        estrutura: "Apresentação pessoal → dor que tinha → como encontrou → resultado específico → recomendação",
-        hook: "\"Eu tentei de tudo pra [resultado]. Nada funcionou até eu descobrir isso.\"",
-        dica: "Gravar no celular, luz natural, ambiente real. Quanto mais 'cru', mais converte."
-      },
-      {
-        name: "Depoimento com Print",
-        tipo: "misto",
-        quando: "Prova tangível. Excelente para infoprodutos e serviços digitais.",
-        estrutura: "Fala sobre o resultado → pausa → mostra o print → volta para câmera → convida",
-        hook: "\"Esse print chegou ontem de madrugada. E foi resultado de uma única mudança que fiz.\"",
-        dica: "Pausar a fala e mostrar o print por 3-4 segundos cria impacto visual forte."
-      },
-      {
-        name: "Mashup de Depoimentos",
-        tipo: "video",
-        quando: "Volume de prova social. Quando tem múltiplos clientes satisfeitos.",
-        estrutura: "Cortes rápidos de 4-8 pessoas com resultados diferentes → CTA unificado",
-        hook: "Sem hook falado — deixa os resultados falarem. Corte no 1º segundo já é o hook.",
-        dica: "Cada pessoa: 3-6 segundos. Resultados diferentes criam variedade e credibilidade."
-      },
-      {
-        name: "Talking Head com Legenda em Destaque",
-        tipo: "video",
-        quando: "Feed mobile, som desligado. Amplia alcance sem depender do áudio.",
-        estrutura: "Fala normal → editado com legendas grandes, coloridas, palavra a palavra",
-        hook: "A primeira palavra ou frase da legenda já é o hook visual.",
-        dica: "Fontes grandes, contrastantes, palavra-a-palavra. Sem fundo sólido. Sensação de reels orgânicos."
-      },
-      {
-        name: "Founder/Expert Cam",
-        tipo: "video",
-        quando: "Autoridade + humanização da marca. Excelente para novos produtos caros.",
-        estrutura: "\"Oi, sou [nome], fundei [X] porque…\" → problema do mercado → solução diferente → convite",
-        hook: "\"Tem uma coisa que ninguém no meu setor fala abertamente. Vou te contar.\"",
-        dica: "O fundador não precisa ser bonito ou eloquente. Autenticidade supera produção."
-      },
-      {
-        name: "Objection Handler (Q&A style)",
-        tipo: "video",
-        quando: "Fundo de funil. Para quem já conhece o produto mas não comprou.",
-        estrutura: "Mostra pergunta/objeção na tela → responde diretamente → vira o argumento → CTA",
-        hook: "\"Você deve estar se perguntando: [objeção mais comum]. Deixa eu te explicar.\"",
-        dica: "Usar objeções reais dos comentários ou DMs do produto. Quanto mais específico, melhor."
-      },
-      {
-        name: "Hot Take / Polêmica",
-        tipo: "video",
-        quando: "Topo de funil. Interrupção de scroll. Gera comentários e alcance orgânico.",
-        estrutura: "Afirmação controversa → pausa dramática → contexto que a justifica → produto como prova",
-        hook: "\"[Afirmação que vai contra o senso comum do nicho]. Sim, eu disse isso.\"",
-        dica: "Não ter medo de polarizar. Quem discorda engaja, e engajamento é distribuição."
-      }
+const F = [
+  /* ───────────────── 01 ───────────────── */
+  { id:1, icon:"🎤", name:"TALKING HEAD", color:"#e63946", tipos:["video"], funil:["topo","meio","fundo"],
+    desc:"Pessoa falando direto para câmera. O formato mais escalável e versátil de todos.",
+    subs:[
+      { name:"Depoimento Simples", tipo:"video", funil:"meio",
+        quando:"Prova social. Fundo de funil, remarketing.",
+        estrutura:"Apresentação → dor que tinha → como encontrou → resultado específico → recomendação",
+        hook:"\"Eu tentei de tudo pra [resultado]. Nada funcionou até eu descobrir isso.\"",
+        dica:"Celular, luz natural, ambiente real. Quanto mais cru, mais converte." },
+      { name:"Depoimento no Carro (Car Testimonial)", tipo:"video", funil:"topo",
+        quando:"Topo/meio. O carro cria contexto de autenticidade máxima — parece desabafo real.",
+        estrutura:"Câmera no celular, dentro do carro → fala sobre o produto como se estivesse ligando para um amigo",
+        hook:"\"Tô aqui no carro porque precisava falar isso pra vocês…\"",
+        dica:"Não editar o ambiente. Barulho de rua, luz natural do lado de fora — tudo compõe a autenticidade." },
+      { name:"Hot Take / Polêmica", tipo:"video", funil:"topo",
+        quando:"Interrupção de scroll. Gera comentários e alcance orgânico.",
+        estrutura:"Afirmação controversa → pausa dramática → contexto que a justifica → produto como prova",
+        hook:"\"[Afirmação contraintuitiva do nicho]. Sim, eu disse isso.\"",
+        dica:"Polarizar é a estratégia. Quem discorda comenta — e comentário é distribuição." },
+      { name:"Founder / Expert Cam", tipo:"video", funil:"meio",
+        quando:"Novos produtos, preço alto, autoridade da marca.",
+        estrutura:"\"Oi, sou [nome], fundei [X] porque…\" → problema do mercado → solução diferente → convite",
+        hook:"\"Tem uma coisa que ninguém no meu setor fala abertamente. Vou te contar.\"",
+        dica:"Fundador não precisa ser bonito. Autenticidade supera produção." },
+      { name:"Objection Handler Q&A", tipo:"video", funil:"fundo",
+        quando:"Fundo de funil. Para quem conhece mas não comprou.",
+        estrutura:"Objeção aparece na tela → responde diretamente → vira o argumento → CTA",
+        hook:"\"Você deve estar pensando: [objeção real]. Deixa eu te explicar.\"",
+        dica:"Usar objeções reais dos comentários e DMs — quanto mais específica, mais poderosa." },
+      { name:"Mashup de Depoimentos", tipo:"video", funil:"meio",
+        quando:"Volume de prova social. Supera objeções em massa.",
+        estrutura:"Cortes rápidos de 4-8 pessoas com resultados diferentes → CTA unificado",
+        hook:"Sem hook falado. O primeiro corte com resultado já é o hook.",
+        dica:"Cada pessoa: 3-6 segundos. Resultados variados criam credibilidade por volume." },
     ]
   },
-  {
-    id: 2,
-    icon: "📱",
-    name: "POV",
-    color: "#4fc3f7",
-    desc: "Point of View. Coloca o espectador dentro da situação. Máxima imersão e identificação.",
-    tipo: "video",
-    subs: [
-      {
-        name: "POV: Você Está Descobrindo",
-        tipo: "video",
-        quando: "Topo de funil. Perfeito para novidades e soluções não-óbvias.",
-        estrutura: "\"POV: você acaba de descobrir que [revelação]\" → câmera na perspectiva do usuário → produto em uso",
-        hook: "\"POV: você acaba de descobrir que estava perdendo dinheiro há anos sem saber.\"",
-        dica: "Câmera na mão, vista em primeira pessoa. Não mostrar o rosto ajuda na imersão."
-      },
-      {
-        name: "POV: Situação Relatable",
-        tipo: "video",
-        quando: "Topo de funil. Gera identificação instantânea com a dor ou desejo.",
-        estrutura: "\"POV: [situação cotidiana frustrante]\" → vivencia a situação → produto resolve",
-        hook: "\"POV: você olha pro seu gestor de anúncios e só vê dinheiro saindo sem resultado.\"",
-        dica: "Quanto mais específica e nítida a situação, mais poderoso o POV. Evite genérico."
-      },
-      {
-        name: "POV: Resultado Já Conquistado",
-        tipo: "video",
-        quando: "Meio/fundo de funil. Ativa imaginação do estado desejado.",
-        estrutura: "\"POV: você já [resultado que o avatar quer]\" → mostra esse mundo possível → CTA",
-        hook: "\"POV: você acordou hoje e sua conta já tinha R$4.800 de vendas de ontem.\"",
-        dica: "Vídeo mostrando o 'depois' de forma sensorial — apps, notificações, lifestyle."
-      },
-      {
-        name: "POV: Alguém Que Já Passou Por Isso",
-        tipo: "video",
-        quando: "Prova social + empatia. Funciona como depoimento mas mais imersivo.",
-        estrutura: "\"POV: eu 2 anos atrás\" vs \"POV: eu hoje\" → contraste visual → o que mudou",
-        hook: "\"POV: eu há 18 meses, com R$300 na conta e zero ideia do que fazer.\"",
-        dica: "Corte entre antes e depois no meio do vídeo. Mudança visual deve ser nítida."
-      }
+
+  /* ───────────────── 02 ───────────────── */
+  { id:2, icon:"🎙️", name:"FAKE PODCAST", color:"#f4c542", tipos:["video"], funil:["topo","meio"],
+    desc:"Simula um clip de podcast viral. Credibilidade máxima — o cérebro entende que podcasts virais são interessantes.",
+    subs:[
+      { name:"Dois Hosts Discutindo Produto", tipo:"video", funil:"topo",
+        quando:"Produtos que precisam de contexto. Qualquer nicho.",
+        estrutura:"Dois apresentadores 'conversando' → um não conhece o produto → o outro revela → reação de surpresa",
+        hook:"\"— Cara, você realmente usa isso todo dia? — Todo dia. E não largo mais.\"",
+        dica:"Mesa, microfones (mesmo que falsos), fundo neutro. A estética de podcast já vende a credibilidade." },
+      { name:"Expert Solo Clip (Podcast Cut)", tipo:"video", funil:"meio",
+        quando:"Autoridade + educação. Funciona em nichos de negócios, saúde, finanças.",
+        estrutura:"Clip 'extraído de podcast' → especialista explica algo importante → o produto é a conclusão lógica",
+        hook:"\"Isso daqui é o que eu diria para qualquer pessoa que quer [resultado].\"",
+        dica:"Adicionar 'Progress bar' do podcast na tela. Detalhe que aumenta a sensação de autenticidade." },
+      { name:"Podcast + Prova de Resultado", tipo:"video", funil:"meio",
+        quando:"Conversão. Combina autoridade com prova.",
+        estrutura:"Formato podcast → entrevistador pergunta 'como você chegou nisso?' → convidado conta a história → resultado",
+        hook:"\"— E aí, quando você percebeu que tinha descoberto algo diferente? — Foi quando vi esse número.\"",
+        dica:"O número ou resultado aparece na tela como overlay enquanto o convidado fala." },
     ]
   },
-  {
-    id: 3,
-    icon: "💬",
-    name: "CAIXINHA DE PERGUNTAS",
-    color: "#f4c542",
-    desc: "Simula o formato de Q&A do Stories/TikTok. Nativo, orgânico, alto engajamento.",
-    tipo: "video",
-    subs: [
-      {
-        name: "Pergunta Real de Seguidor",
-        tipo: "video",
-        quando: "Topo de funil. Parece conteúdo orgânico, não anúncio.",
-        estrutura: "Mostra a pergunta (sticker de caixinha) → responde na câmera → CTA no final",
-        hook: "A própria pergunta na tela é o hook. Deve ser uma dor real do avatar.",
-        dica: "Usar fonte e visual idênticos ao sticker nativo do Instagram Stories. Não inventar perguntas genéricas."
-      },
-      {
-        name: "Pergunta-Provocação (Sócrates)",
-        tipo: "video",
-        quando: "Topo de funil. Força o espectador a refletir sobre a própria situação.",
-        estrutura: "Pergunta que expõe uma lacuna do avatar → pausa → desenvolve → produto é a resposta",
-        hook: "\"Você já parou para calcular quanto dinheiro você perdeu em criativos que não converteram?\"",
-        dica: "A pergunta deve gerar desconforto leve. Não ser agressiva, mas tocante."
-      },
-      {
-        name: "Série de Perguntas Rápidas",
-        tipo: "video",
-        quando: "Topo de funil. Cada pergunta é uma dor. Gera identificação acumulada.",
-        estrutura: "3-5 perguntas em sequência rápida → cada uma = uma dor do avatar → CTA único no final",
-        hook: "\"Você [dor 1]? Você [dor 2]? Você [dor 3]? Então esse vídeo é para você.\"",
-        dica: "Pausar brevemente entre perguntas. Ritmo crescente de intensidade."
-      },
-      {
-        name: "Pergunta + Resposta Surpresa",
-        tipo: "video",
-        quando: "Topo de funil. A resposta deve ser contrária ao senso comum.",
-        estrutura: "Pergunta inocente → espera-se resposta X → resposta é Y (surpreendente) → explica",
-        hook: "\"Qual é o maior erro de quem quer emagrecer?\" → \"Fazer exercício.\" (depois explica)",
-        dica: "A dissonância cognitiva segura o espectador mesmo que queira sair."
-      }
+
+  /* ───────────────── 03 ───────────────── */
+  { id:3, icon:"📺", name:"NEWS / NOTÍCIA", color:"#5bc8f5", tipos:["video","misto"], funil:["topo"],
+    desc:"Estética jornalística. Autoridade instantânea via formato. O cérebro processa como informação, não como anúncio.",
+    subs:[
+      { name:"Breaking News Style", tipo:"video", funil:"topo",
+        quando:"Topo de funil. Lançamentos, novas descobertas, novidades do nicho.",
+        estrutura:"Ticker de notícia na tela + locutor sério → \"nova descoberta em [nicho]\" → produto é a revelação",
+        hook:"\"URGENTE: novo estudo muda tudo o que sabíamos sobre [assunto do nicho].\"",
+        dica:"Fonte de legenda de noticiário, fundo de estúdio (ou green screen). Não usar logo do produto no início." },
+      { name:"Notícia Real Comentada", tipo:"video", funil:"topo",
+        quando:"Autoridade via terceiro. Notícia real valida o produto indiretamente.",
+        estrutura:"Manchete/notícia real aparece na tela → comenta ao vivo → conecta ao produto como solução",
+        hook:"\"Vi essa manchete hoje e precisava comentar imediatamente.\"",
+        dica:"Green screen com a manchete como fundo. Pessoa na frente, aponta para o dado." },
+      { name:"Fact / Fun Fact Style", tipo:"video", funil:"topo",
+        quando:"Educação + curiosidade. Ideal para suplementos, apps, serviços com dado forte.",
+        estrutura:"\"Você sabia que [fato surpreendente do nicho]?\" → dado visual → implicação → produto como resposta",
+        hook:"\"Você sabia que [dado específico e chocante]? Deixa eu te explicar por quê isso importa.\"",
+        dica:"Dado deve ser real e verificável. Dado falso destrói a marca se descoberto." },
     ]
   },
-  {
-    id: 4,
-    icon: "⚡",
-    name: "REACT / REAÇÃO",
-    color: "#3ddc84",
-    desc: "Reação ao vivo a algo: produto, resultado, conteúdo de terceiro. Emoção autêntica = conversão.",
-    tipo: "video",
-    subs: [
-      {
-        name: "Reação ao Próprio Resultado",
-        tipo: "video",
-        quando: "Prova social. Altíssima autenticidade. Difícil de parecer forçado.",
-        estrutura: "Setup (\"vou checar meus resultados agora\") → reação genuína → contexto → CTA",
-        hook: "\"Deixa eu abrir aqui ao vivo…\" [pausa para tensão] \"…cara.\"",
-        dica: "Não editar a reação. O tropeçar na fala, o espanto, são o ativo criativo."
-      },
-      {
-        name: "Reação a Print/Screenshot",
-        tipo: "video",
-        quando: "Prova tangível de resultado. Credibilidade visual + emoção.",
-        estrutura: "Mostra o print → reação de espanto/alegria → explica o que aconteceu → convida",
-        hook: "\"Esse print eu não esperava ver hoje…\" [mostra o print]",
-        dica: "Câmera captura tanto o rosto quanto o print. Ambos no frame juntos."
-      },
-      {
-        name: "Reação a Vídeo/Conteúdo Externo",
-        tipo: "video",
-        quando: "Topo de funil. Forma de pegar carona em autoridade de terceiro.",
-        estrutura: "Aparece vídeo/clip externo (tela dividida) → reage ao vivo → comenta → produto é a conclusão",
-        hook: "\"Esse cara disse uma coisa que muda tudo. Olha só.\" [clip começa]",
-        dica: "Usar clips de noticias, estudos ou personas do nicho que o avatar já conhece."
-      },
-      {
-        name: "Dueto / Stitch Style",
-        tipo: "video",
-        quando: "Topo de funil. Nativo do TikTok. Gera curiosidade sobre o vídeo original.",
-        estrutura: "Tela dividida: clip de terceiro + reação ao lado → comentário que leva ao produto",
-        hook: "O clip original no frame já é o hook visual. A reação cria a tensão.",
-        dica: "Escolher clips que o avatar já viu ou conhece. Familiaridade amplia retenção."
-      }
+
+  /* ───────────────── 04 ───────────────── */
+  { id:4, icon:"🎤🎤", name:"ENTREVISTA / STREET", color:"#3ddc84", tipos:["video"], funil:["topo"],
+    desc:"Formato jornalístico com pessoas reais. Nativo, orgânico, curiosidade imediata.",
+    subs:[
+      { name:"Entrevista Especialista", tipo:"video", funil:"meio",
+        quando:"Autoridade + profundidade. Funciona em nichos de saúde, finanças, marketing.",
+        estrutura:"Entrevistador faz pergunta → especialista responde com profundidade → produto emerge naturalmente",
+        hook:"\"Trouxe aqui [especialista] para me explicar uma coisa que sempre quis entender sobre [assunto].\"",
+        dica:"Dois microfones, câmera fixa, enquadramento de entrevista. Não precisa de estúdio caro." },
+      { name:"Street Interview", tipo:"video", funil:"topo",
+        quando:"Prova social nativa. Parece conteúdo orgânico — stop de scroll alto.",
+        estrutura:"Pergunta para pessoas na rua/contexto real → respostas variadas → transição para o produto",
+        hook:"\"Parei 10 pessoas na rua e perguntei [pergunta provocadora sobre o nicho].\"",
+        dica:"Câmera na mão, ambiente real. Cada resposta dura 3-5 segundos. Dinamismo é o que retém." },
+      { name:"Auto-entrevista / Q&A Comentários", tipo:"video", funil:"meio",
+        quando:"Engajamento + conversão. Responder perguntas reais cria confiança.",
+        estrutura:"Pergunta real de comentário aparece na tela → responde diretamente → CTA",
+        hook:"\"Alguém aqui nos comentários perguntou [pergunta real]. Deixa eu responder.\"",
+        dica:"Usar fundo com a pergunta em overlay. Resposta direta, sem enrolação." },
     ]
   },
-  {
-    id: 5,
-    icon: "✂️",
-    name: "TELA DIVIDIDA",
-    color: "#ce93d8",
-    desc: "Split-screen. Comparação visual side-by-side. Antes/depois, A vs B, certo vs errado.",
-    tipo: "misto",
-    subs: [
-      {
-        name: "Antes/Depois (Before & After)",
-        tipo: "misto",
-        quando: "Todos os funis. O formato de conversão mais universal da história.",
-        estrutura: "Lado A = estado antes (dor visual) | Lado B = estado depois (resultado) → CTA",
-        hook: "\"[Dias] de diferença. Mesmo produto. Mesma pessoa. Olha.\"",
-        dica: "Quanto mais nítida a diferença visual, maior o impacto. Não deixar sutil."
-      },
-      {
-        name: "Certo vs. Errado",
-        tipo: "video",
-        quando: "Topo de funil. Educa e posiciona ao mesmo tempo.",
-        estrutura: "Lado A = jeito errado (como a maioria faz) | Lado B = jeito certo (com seu método)",
-        hook: "\"90% fazem assim. Os 10% que escalam fazem assim.\" [split screen]",
-        dica: "Usar emojis ❌ e ✅ claramente visíveis nas sides para orientar leitura."
-      },
-      {
-        name: "Com Produto vs. Sem Produto",
-        tipo: "video",
-        quando: "Meio de funil. Demonstra valor tangível do produto.",
-        estrutura: "Lado A = situação sem o produto | Lado B = situação com o produto → diferença evidente",
-        hook: "\"Sem [produto]: [situação ruim]. Com [produto]: [situação boa].\"",
-        dica: "Situação deve ser reconhecível e cotidiana. Evitar abstrata demais."
-      },
-      {
-        name: "Concorrente vs. Você",
-        tipo: "imagem",
-        quando: "Meio de funil. Para nichos com muita opção de mercado.",
-        estrutura: "Lado A = solução genérica do mercado | Lado B = sua solução → diferencial claro",
-        hook: "\"Isso é o que você acha. Isso é o que realmente acontece.\"",
-        dica: "Não citar nomes de concorrentes. Posicionar como 'mercado comum' vs 'seu método'."
-      }
+
+  /* ───────────────── 05 ───────────────── */
+  { id:5, icon:"🎭", name:"SKIT / ENCENAÇÃO", color:"#c084fc", tipos:["video"], funil:["topo","meio"],
+    desc:"Pequena cena dramatizada. Um ou múltiplos personagens. Alto watch time, orgânico, comical.",
+    subs:[
+      { name:"Solo Skit (Um Ator, Múltiplos Personagens)", tipo:"video", funil:"topo",
+        quando:"Fashion, beleza, lifestyle, educação. Alto watch time e conversão.",
+        estrutura:"Uma pessoa fazendo dois personagens — 'o que não tem o produto' vs 'o que tem' — lado a lado ou em cortes",
+        hook:"A cena já é o hook. Sem palavra de abertura — ação imediata.",
+        dica:"Corte rápido entre os dois personagens. Mudança de roupa ou posição já diferencia. Humor intencional." },
+      { name:"Problema-Solução Dramatizado", tipo:"video", funil:"topo",
+        quando:"Qualquer nicho. Problema vivido de forma exagerada → produto resolve.",
+        estrutura:"Cena de frustração real (exagerada) → momento de virada → produto como solução → reação de alívio",
+        hook:"A cena de frustração já é o hook — sem falar nada nos primeiros 2s.",
+        dica:"Exagero controlado é a chave. Muito exagerado vira comédia; pouco exagerado não retém." },
+      { name:"O Ceticista Convertido", tipo:"video", funil:"meio",
+        quando:"Superar descrença. Muito eficaz para produtos com objeções fortes.",
+        estrutura:"Personagem cético ridiculariza o produto → usa → fica surpreso → indica para amigo",
+        hook:"\"Eu falei que nunca ia usar isso. Olha eu agora.\"",
+        dica:"A transformação deve ser visível e rápida. Não arrastar o ceticismo por mais de metade do vídeo." },
     ]
   },
-  {
-    id: 6,
-    icon: "🗞️",
-    name: "CONTEÚDO NATIVO / UGC",
-    color: "#ff8c42",
-    desc: "Parece post orgânico, não anúncio. Máxima retenção. O espectador não sente que está sendo vendido.",
-    tipo: "video",
-    subs: [
-      {
-        name: "\"Day In My Life\" com Produto",
-        tipo: "video",
-        quando: "Topo de funil. Lifestyle content. Produto aparece de forma integrada.",
-        estrutura: "Vídeo de rotina real → produto aparece naturalmente em uso → resultado mencionado → CTA suave",
-        hook: "\"Filmei meu dia hoje. Tem uma coisa que uso todo dia que mudou muita coisa.\"",
-        dica: "O produto NÃO é o protagonista no início. Aparece como detalhe natural da vida."
-      },
-      {
-        name: "Review Honesto",
-        tipo: "video",
-        quando: "Meio/fundo de funil. Constrói confiança por não parecer forçado.",
-        estrutura: "Expectativa → uso real → pontos positivos → pontos negativos honestos → conclusão favorável",
-        hook: "\"Vou ser bem honesto sobre [produto]. Tem coisas boas e coisas que eu não gostei.\"",
-        dica: "Mencionar 1-2 pontos negativos menores aumenta MUITO a credibilidade dos positivos."
-      },
-      {
-        name: "Unboxing",
-        tipo: "video",
-        quando: "Topo/meio de funil. Gera antecipação e desejo pelo produto.",
-        estrutura: "Embalagem chega → abre ao vivo → revela produto por peças → reação → uso inicial",
-        hook: "\"Acabou de chegar. Vou abrir aqui ao vivo pra você ver o que tem dentro.\"",
-        dica: "Ritmo de revelação progressiva. Não mostrar tudo de uma vez. Prolongar a antecipação."
-      },
-      {
-        name: "Tutorial / Passo a Passo",
-        tipo: "video",
-        quando: "Meio de funil. Educa + demonstra valor + cria reciprocidade.",
-        estrutura: "\"Vou te ensinar [resultado] em [N] passos\" → ensina de verdade → produto acelera o processo",
-        hook: "\"Em 4 minutos vou te mostrar como fazer [resultado] do zero. Vai precisar só de [X].\"",
-        dica: "Entregar valor real no tutorial. O produto é o upgrade, não o gatekeeping."
-      },
-      {
-        name: "\"TikTok me Fez Comprar\"",
-        tipo: "video",
-        quando: "Topo de funil. Gatilho de FOMO + tendência.",
-        estrutura: "\"Vi esse produto N vezes no TikTok\" → cética → testou → surpreendida → recomenda",
-        hook: "\"Ok, finalmente comprei o que todo mundo aqui fica me mandando. Vou ser honesta.\"",
-        dica: "Criar ceticismo inicial autentico. A virada é mais poderosa quando o ceticismo foi real."
-      },
-      {
-        name: "GRWM (Get Ready With Me)",
-        tipo: "video",
-        quando: "Topo de funil. Beleza, moda, lifestyle, saúde. Integração nativa.",
-        estrutura: "Rotina de preparação → produto integrado naturalmente → resultado da rotina → CTA",
-        hook: "\"Me preparando pra [evento] com vocês. Tem um produto novo que estou amando.\"",
-        dica: "Conversa íntima com a câmera. Como se estivesse falando com uma amiga."
-      }
+
+  /* ───────────────── 06 ───────────────── */
+  { id:6, icon:"📱", name:"POV", color:"#fb923c", tipos:["video"], funil:["topo","meio"],
+    desc:"Point of View. Coloca o espectador dentro da situação. Imersão + identificação instantânea.",
+    subs:[
+      { name:"POV: Situação Relatable", tipo:"video", funil:"topo",
+        quando:"Identificação com dor ou desejo cotidiano.",
+        estrutura:"\"POV: [situação cotidiana frustrante]\" → vivencia → produto resolve",
+        hook:"\"POV: você olha pro gestor de anúncios e só vê dinheiro indo embora.\"",
+        dica:"Quanto mais específica a situação, mais poderoso. Evitar POV genérico." },
+      { name:"POV: Resultado Já Conquistado", tipo:"video", funil:"meio",
+        quando:"Ativa imaginação do estado desejado. Meio/fundo de funil.",
+        estrutura:"\"POV: você já [resultado que o avatar quer]\" → mostra esse mundo possível → CTA",
+        hook:"\"POV: você acordou e sua conta tinha vendas de ontem dormindo.\"",
+        dica:"Mostrar apps de vendas, notificações, lifestyle do depois. Sensorial." },
+      { name:"POV: Antes vs Depois", tipo:"video", funil:"topo",
+        quando:"Contraste de transformação. Narrativa em primeira pessoa.",
+        estrutura:"\"POV: eu há [X tempo]\" → situação ruim → \"POV: eu hoje\" → transformação visual",
+        hook:"\"POV: eu há 6 meses, sem saber por onde começar.\"",
+        dica:"Corte no meio do vídeo entre os dois POVs. Mudança visual deve ser nítida." },
     ]
   },
-  {
-    id: 7,
-    icon: "🖥️",
-    name: "GREEN SCREEN",
-    color: "#4fc3f7",
-    desc: "Pessoa na frente de imagem ou vídeo de fundo. Permite contexto visual sem estar no local.",
-    tipo: "video",
-    subs: [
-      {
-        name: "Green Screen com Print de Resultado",
-        tipo: "video",
-        quando: "Prova social + autoridade. Resultado fica visível enquanto explica.",
-        estrutura: "Print de resultado como fundo → pessoa na frente → aponta e comenta → CTA",
-        hook: "\"Esse é o resultado que meu aluno mandou segunda de manhã.\" [fundo = print]",
-        dica: "Apontar para elementos específicos no print enquanto fala. Cria conexão visual."
-      },
-      {
-        name: "Green Screen com Notícia/Estudo",
-        tipo: "video",
-        quando: "Topo de funil. Autoridade via terceiro. 'Não sou eu dizendo, é a ciência/mídia.'",
-        estrutura: "Manchete ou estudo como fundo → comenta ao vivo → conecta ao produto/solução",
-        hook: "\"Vi essa notícia hoje e precisei comentar imediatamente.\" [fundo = manchete]",
-        dica: "Fundo deve ser legível mas levemente desfocado. Pessoa em primeiro plano, bem iluminada."
-      },
-      {
-        name: "Green Screen com Produto em Uso",
-        tipo: "video",
-        quando: "Demonstração sem precisar gravar no local. Flexibilidade de produção.",
-        estrutura: "Vídeo/gif do produto funcionando como fundo → explica o que está acontecendo",
-        hook: "\"Vou te mostrar exatamente como isso funciona. Olha o fundo.\"",
-        dica: "Loop do produto funcionando como fundo cria movimento sem esforço de edição."
-      },
-      {
-        name: "Green Screen com Comentário de Hater",
-        tipo: "video",
-        quando: "Topo de funil. Controvérsia controlada. Alta retenção.",
-        estrutura: "Comentário negativo como fundo → responde com calma e dados → vira o argumento",
-        hook: "\"Alguém me mandou esse comentário. Vou responder aqui.\" [comentário no fundo]",
-        dica: "Responder com segurança, sem agressividade. O produto prova o ponto."
-      }
+
+  /* ───────────────── 07 ───────────────── */
+  { id:7, icon:"💬", name:"CAIXINHA DE PERGUNTAS", color:"#f4c542", tipos:["video"], funil:["topo"],
+    desc:"Simula Q&A nativo do Stories/TikTok. Formato orgânico — parece conteúdo, não anúncio.",
+    subs:[
+      { name:"Pergunta Real de Seguidor", tipo:"video", funil:"topo",
+        quando:"Parece conteúdo orgânico. Alta retenção.",
+        estrutura:"Sticker de caixinha com pergunta real → responde na câmera → CTA no final",
+        hook:"A própria pergunta na tela é o hook. Deve nomear uma dor real.",
+        dica:"Visual idêntico ao sticker nativo do Instagram. Não inventar perguntas genéricas." },
+      { name:"Série de Perguntas Rápidas", tipo:"video", funil:"topo",
+        quando:"Identificação acumulada. Cada pergunta é uma dor do avatar.",
+        estrutura:"3-5 perguntas em sequência → cada uma = uma dor → CTA único no final",
+        hook:"\"Você [dor 1]? Você [dor 2]? Você [dor 3]? Então esse vídeo é para você.\"",
+        dica:"Ritmo crescente de intensidade entre as perguntas." },
+      { name:"Pergunta + Resposta Surpresa", tipo:"video", funil:"topo",
+        quando:"Dissonância cognitiva. Resposta contrária ao senso comum.",
+        estrutura:"Pergunta inocente → resposta inesperada → explica o paradoxo → produto",
+        hook:"\"Qual o maior erro de quem quer emagrecer?\" → \"Fazer exercício.\" (depois explica)",
+        dica:"O paradoxo segura o espectador mesmo que queira sair." },
     ]
   },
-  {
-    id: 8,
-    icon: "📸",
-    name: "ESTÁTICO / IMAGEM",
-    color: "#f4c542",
-    desc: "Imagem estática ou com animação leve. Rápido de produzir, testável em volume, subestimado.",
-    tipo: "imagem",
-    subs: [
-      {
-        name: "Imagem de Produto Simples",
-        tipo: "imagem",
-        quando: "Reconhecimento de marca + e-commerce. Fundo de funil.",
-        estrutura: "Produto em destaque + headline curta + CTA visual claro",
-        hook: "Headline na imagem = hook. Deve ser única, específica, irresistível.",
-        dica: "Fundo sólido ou texturizado. Sem poluição visual. Produto como herói."
-      },
-      {
-        name: "Grid / Collage de Resultados",
-        tipo: "imagem",
-        quando: "Meio de funil. Volume de prova social numa só imagem.",
-        estrutura: "2x2 ou 3x3 com prints de resultados de clientes diferentes",
-        hook: "\"[N] resultados reais. [Mês/ano].\" — legenda faz o trabalho do hook.",
-        dica: "Manter paleta de cores uniforme. Prints organizados criam sensação de sistema."
-      },
-      {
-        name: "Meme Adaptado",
-        tipo: "imagem",
-        quando: "Topo de funil. Alcance orgânico. Quebra o padrão visual do feed de anúncios.",
-        estrutura: "Template de meme reconhecível + situação do nicho → produto como punchline",
-        hook: "O próprio meme é o hook. O nicho identifica o template e para para ver.",
-        dica: "Usar memes que o avatar já conhece. Adaptar para a dor específica do nicho."
-      },
-      {
-        name: "Citação / Quote Card",
-        tipo: "imagem",
-        quando: "Topo de funil. Autoridade + compartilhamento.",
-        estrutura: "Frase forte em destaque + atribuição + logo/marca sutil",
-        hook: "A frase é o hook. Deve ser polêmica, inspiradora ou contraintuitiva.",
-        dica: "Tipografia legível, fundo contrastante. Menos é mais."
-      },
-      {
-        name: "Comparativo em Tabela",
-        tipo: "imagem",
-        quando: "Meio de funil. Lógica e dados. Derruba objeções visualmente.",
-        estrutura: "Tabela: coluna 'mercado comum' vs coluna 'seu produto' → checkmarks × e ✓",
-        hook: "\"Por que [Número] pessoas estão trocando [concorrente genérico] por nós.\"",
-        dica: "Coluna do produto deve ter itens que o concorrente não tem. Nunca inventar."
-      },
-      {
-        name: "Imagem de Lifestyle",
-        tipo: "imagem",
-        quando: "Topo de funil. Aspiracional. Ativa desejo pelo estado final.",
-        estrutura: "Pessoa no resultado desejado → headline que nomeia o estado → CTA",
-        hook: "Headline: \"Essa pode ser sua realidade em [X] semanas.\"",
-        dica: "Foto autêntica, não stock photo genérica. Resultado deve parecer alcançável."
-      }
+
+  /* ───────────────── 08 ───────────────── */
+  { id:8, icon:"⚡", name:"REACT / REAÇÃO", color:"#3ddc84", tipos:["video"], funil:["topo","meio"],
+    desc:"Reação ao vivo a algo. Emoção autêntica + prova = conversão.",
+    subs:[
+      { name:"Reação ao Próprio Resultado", tipo:"video", funil:"meio",
+        quando:"Prova social autêntica. Difícil de parecer forçado.",
+        estrutura:"\"Vou checar meus resultados ao vivo\" → reação genuína → contexto → CTA",
+        hook:"\"Deixa eu abrir aqui ao vivo...\" [pausa] \"...cara.\"",
+        dica:"Não editar a reação. O espanto é o ativo criativo." },
+      { name:"Dueto / Stitch Style", tipo:"video", funil:"topo",
+        quando:"Nativo do TikTok. Gera curiosidade sobre o vídeo original.",
+        estrutura:"Tela dividida: clip de terceiro + reação ao lado → comentário leva ao produto",
+        hook:"O clip original já é o hook visual. Reação cria a tensão.",
+        dica:"Clip de alguém que o avatar já conhece. Familiaridade amplia retenção." },
+      { name:"Reação a Comentário de Hater", tipo:"video", funil:"topo",
+        quando:"Controvérsia controlada. Alta retenção por indignação.",
+        estrutura:"Comentário negativo na tela → responde com dados e calma → produto prova o ponto",
+        hook:"\"Esse comentário que me mandaram. Vou responder aqui.\"",
+        dica:"Responder com segurança, nunca agressividade. O produto vence o argumento." },
     ]
   },
-  {
-    id: 9,
-    icon: "📖",
-    name: "STORYTELLING",
-    color: "#f4a261",
-    desc: "Narrativa de transformação. Hook emocional que mantém atenção do início ao CTA.",
-    tipo: "video",
-    subs: [
-      {
-        name: "Jornada do Herói",
-        tipo: "video",
-        quando: "Topo de funil. Conexão emocional profunda. Funciona longo e curto.",
-        estrutura: "Vida antes (dor) → momento de virada → jornada de descoberta → vida agora → convite",
-        hook: "\"Há [X tempo] eu estava [situação ruim]. Hoje minha vida é completamente diferente.\"",
-        dica: "A dor do início deve ser específica e visual. Quanto mais o avatar se enxerga, melhor."
-      },
-      {
-        name: "Origem do Produto/Método",
-        tipo: "video",
-        quando: "Topo de funil. Humaniza a marca + explica o 'porquê' do produto.",
-        estrutura: "Problema pessoal → busca por solução → frustração com o mercado → criou a solução → resultado",
-        hook: "\"Criei isso porque estava frustrado com tudo que existia no mercado.\"",
-        dica: "Quanto mais específica a frustração com o mercado, mais o fundador parece legítimo."
-      },
-      {
-        name: "Caso de Sucesso de Cliente",
-        tipo: "video",
-        quando: "Meio de funil. Prova de sistema. Constrói confiança por narrativa, não por claim.",
-        estrutura: "Quem era o cliente → o que tentou antes → como chegou ao produto → resultado específico → o que mudou",
-        hook: "\"A [Nome] chegou pra mim com [situação]. Em [X] dias, mudou isso tudo.\"",
-        dica: "Resultado deve ter número específico. Não 'melhorou muito' mas 'aumentou 340%'."
-      },
-      {
-        name: "Falha Reveladora",
-        tipo: "video",
-        quando: "Topo de funil. Vulnerabilidade intencional. Gera confiança por honestidade.",
-        estrutura: "Admite erro ou fracasso → o que aprendeu → como mudou → o produto/método saiu disso",
-        hook: "\"Vou te contar o meu maior erro que me custou R$X. Porque pode te poupar.\"",
-        dica: "A falha deve ser real. Falha inventada ou exagerada parece manipulation."
-      }
+
+  /* ───────────────── 09 ───────────────── */
+  { id:9, icon:"✂️", name:"TELA DIVIDIDA", color:"#5bc8f5", tipos:["video","imagem","misto"], funil:["topo","meio","fundo"],
+    desc:"Split-screen. Comparação visual side-by-side. O formato de contraste mais universal.",
+    subs:[
+      { name:"Antes / Depois", tipo:"misto", funil:"todos",
+        quando:"O formato de conversão mais universal da história.",
+        estrutura:"Lado A = antes (dor visual) | Lado B = depois (resultado) → CTA",
+        hook:"\"[N] dias de diferença. Olha.\"",
+        dica:"Quanto mais nítida a diferença visual, maior o impacto. Não deixar sutil." },
+      { name:"Certo vs. Errado", tipo:"video", funil:"topo",
+        quando:"Educa e posiciona ao mesmo tempo.",
+        estrutura:"Lado A = jeito errado (maioria faz) | Lado B = jeito certo (seu método)",
+        hook:"\"90% fazem assim ❌. Os 10% que escalam fazem assim ✅.\"",
+        dica:"Emojis ❌ e ✅ bem visíveis para orientar leitura rápida." },
+      { name:"\"What I Ordered vs What I Got\"", tipo:"video", funil:"meio",
+        quando:"E-commerce e produtos físicos. Supera ceticismo da compra online.",
+        estrutura:"\"Esperava [expectativa]\" vs \"Recebi [realidade melhor]\" → surpresa positiva",
+        hook:"\"Estava com medo de comprar porque…\" → abre o produto → surpresa positiva",
+        dica:"A surpresa positiva deve ser real. Fingir expectativa baixa e realidade alta cria o efeito." },
     ]
   },
-  {
-    id: 10,
-    icon: "🎙️",
-    name: "NARRAÇÃO / VOICEOVER",
-    color: "#ce93d8",
-    desc: "Áudio de narração sobre imagens, vídeos ou texto. Escala sem precisar de câmera.",
-    tipo: "misto",
-    subs: [
-      {
-        name: "Narração sobre B-Roll",
-        tipo: "misto",
-        quando: "Todos os funis. Alta produção percebida, produção real baixa.",
-        estrutura: "Imagens/vídeos do contexto → voz narrando a história/problema/solução por cima",
-        hook: "Os primeiros 2 segundos de imagem + início da narração = duplo hook.",
-        dica: "B-roll deve ser relacionado ao que está sendo dito. Sincronia áudio-vídeo é crucial."
-      },
-      {
-        name: "Narração sobre Texto (Kinetic Text)",
-        tipo: "video",
-        quando: "Topo de funil. Alto impacto visual. Ótimo para sons dramáticos.",
-        estrutura: "Texto aparece animado sincronizado com a narração → fundo escuro/dramático",
-        hook: "Primeira palavra na tela = hook visual. Deve ser uma palavra de alto impacto.",
-        dica: "Uma palavra por vez ou frases curtas. Velocidade sincronizada com o áudio."
-      },
-      {
-        name: "Narração com Trending Audio",
-        tipo: "video",
-        quando: "Topo de funil. Algoritmo favorece áudios em alta. Distribuição orgânica maior.",
-        estrutura: "Áudio trending → imagens do produto/nicho sintonizadas → texto reforça a mensagem",
-        hook: "O próprio áudio trendy pode ser o hook. Familiaridade retém o scroll.",
-        dica: "Sincronizar viradas do áudio com viradas visuais. TikTok Creative Center para áudios em alta."
-      },
-      {
-        name: "Podcast-Style Ad",
-        tipo: "video",
-        quando: "Meio de funil. Autoridade + profundidade. Funciona em formato longo.",
-        estrutura: "Dois participantes 'conversando' (real ou simulado) → problema é discutido → produto emerge como solução",
-        hook: "\"— Você precisa me contar esse método. Sério. — Ok, vou explicar do zero.\"",
-        dica: "Estética de podcast (microfones, mesa, ambiente) aumenta percepção de autoridade."
-      },
-      {
-        name: "ASMR / Demonstração Silenciosa",
-        tipo: "video",
-        quando: "Nicho de produto físico. Alto engajamento de curiosidade.",
-        estrutura: "Sons do produto em uso → close-up visual → texto na tela explica → CTA",
-        hook: "Imagem de close + som inesperado do produto = stop de scroll garantido.",
-        dica: "Sem narração. Deixa o produto falar. Texto mínimo na tela."
-      }
+
+  /* ───────────────── 10 ───────────────── */
+  { id:10, icon:"🗞️", name:"UGC NATIVO", color:"#fb923c", tipos:["video"], funil:["topo","meio"],
+    desc:"Parece post orgânico, não anúncio. Máxima retenção. Espectador não sente que está sendo vendido.",
+    subs:[
+      { name:"Review Honesto", tipo:"video", funil:"meio",
+        quando:"Constrói confiança por não parecer forçado.",
+        estrutura:"Expectativa → uso real → pontos positivos → 1 ponto negativo honesto → conclusão favorável",
+        hook:"\"Vou ser bem honesto sobre [produto]. Tem coisas boas e uma coisa que não gostei.\"",
+        dica:"1-2 pontos negativos menores aumentam MUITO a credibilidade dos positivos." },
+      { name:"\"Vi isso no TikTok\" / FOMO Format", tipo:"video", funil:"topo",
+        quando:"Produtos com FOMO. Ideal para trends e lançamentos.",
+        estrutura:"\"Vi esse produto N vezes no TikTok\" → cética → testou → surpreendida → recomenda",
+        hook:"\"Ok, finalmente comprei o que todo mundo aqui fica falando. Vou ser honesta.\"",
+        dica:"Ceticismo inicial autêntico. A virada é mais poderosa quando o ceticismo era real." },
+      { name:"GRWM / Day in My Life", tipo:"video", funil:"topo",
+        quando:"Beleza, moda, lifestyle, saúde. Integração nativa.",
+        estrutura:"Rotina de preparação → produto aparece naturalmente em uso → resultado → CTA suave",
+        hook:"\"Me preparando pra [evento] com vocês. Tem um produto novo que tô amando.\"",
+        dica:"Conversa íntima. Produto não é o protagonista no início — aparece como detalhe natural." },
+      { name:"Unboxing / Revelação", tipo:"video", funil:"topo",
+        quando:"Gera antecipação e desejo pelo produto.",
+        estrutura:"Embalagem chega → abre ao vivo → revela por partes → reação → uso inicial",
+        hook:"\"Acabou de chegar. Vou abrir aqui ao vivo.\"",
+        dica:"Ritmo progressivo. Não mostrar tudo de uma vez — prolongar a antecipação." },
     ]
-  }
+  },
+
+  /* ───────────────── 11 ───────────────── */
+  { id:11, icon:"🖥️", name:"GREEN SCREEN", color:"#c084fc", tipos:["video"], funil:["topo","meio"],
+    desc:"Pessoa na frente de imagem ou vídeo de fundo. Contexto visual sem precisar estar no local.",
+    subs:[
+      { name:"Green Screen com Print de Resultado", tipo:"video", funil:"meio",
+        quando:"Prova + autoridade. Resultado visível enquanto explica.",
+        estrutura:"Print como fundo → pessoa na frente → aponta e comenta → CTA",
+        hook:"\"Esse resultado chegou segunda de manhã.\" [fundo = print]",
+        dica:"Apontar para elementos específicos do print enquanto fala." },
+      { name:"Green Screen com Notícia/Estudo", tipo:"video", funil:"topo",
+        quando:"Autoridade via terceiro. 'Não sou eu dizendo, é a ciência/mídia.'",
+        estrutura:"Manchete ou estudo como fundo → comenta ao vivo → conecta ao produto",
+        hook:"\"Vi essa notícia hoje e precisei comentar.\" [fundo = manchete]",
+        dica:"Fundo legível mas levemente desfocado. Pessoa em primeiro plano bem iluminada." },
+      { name:"Green Screen com Comentário", tipo:"video", funil:"topo",
+        quando:"Polêmica controlada. Resposta que vira o argumento.",
+        estrutura:"Comentário (bom ou ruim) como fundo → responde → produto é a prova",
+        hook:"\"Esse comentário aqui merece resposta.\"",
+        dica:"Tanto comentário de hater quanto de fã funcionam. Hater = mais retentivo." },
+    ]
+  },
+
+  /* ───────────────── 12 ───────────────── */
+  { id:12, icon:"🎙️ b-roll", name:"NARRAÇÃO / VOICEOVER", color:"#3ddc84", tipos:["misto","video"], funil:["topo","meio","fundo"],
+    desc:"Áudio de narração sobre imagens ou texto. Escala sem precisar de câmera.",
+    subs:[
+      { name:"Narração sobre B-Roll", tipo:"misto", funil:"topo",
+        quando:"Alta produção percebida, produção real baixa.",
+        estrutura:"Imagens do contexto → voz narrando história/problema/solução por cima",
+        hook:"Os primeiros 2s de imagem + início da narração = duplo hook simultâneo.",
+        dica:"B-roll sincronizado com o que está sendo dito. Corte a cada 2-3 segundos." },
+      { name:"Kinetic Text (Texto Animado)", tipo:"video", funil:"topo",
+        quando:"Alto impacto visual. Sons dramáticos. Feed com som desligado.",
+        estrutura:"Texto aparece animado sincronizado com narração → fundo escuro",
+        hook:"Primeira palavra na tela = hook visual. Palavra de alto impacto.",
+        dica:"Uma palavra por vez ou frases curtas. Velocidade sincronizada com áudio." },
+      { name:"VSL (Video Sales Letter)", tipo:"video", funil:"fundo",
+        quando:"Fundo de funil. Texto longo apresentado em vídeo. Alta conversão para ticket médio/alto.",
+        estrutura:"Hook forte → problema → agitação → revelação → solução → prova → oferta → CTA",
+        hook:"\"Se você [situação específica], então esse vídeo foi feito para você.\"",
+        dica:"Voz calma, slides simples, sem câmera necessária. Duração: 3-15 minutos para cold." },
+    ]
+  },
+
+  /* ───────────────── 13 ───────────────── */
+  { id:13, icon:"📖", name:"STORYTELLING", color:"#f4c542", tipos:["video"], funil:["topo","meio"],
+    desc:"Narrativa de transformação. Hook emocional que mantém atenção do início ao CTA.",
+    subs:[
+      { name:"Jornada do Herói", tipo:"video", funil:"topo",
+        quando:"Conexão emocional profunda. Funciona longo e curto.",
+        estrutura:"Vida antes (dor) → momento de virada → jornada → vida agora → convite",
+        hook:"\"Há [X tempo] eu estava [situação ruim]. Hoje minha vida é completamente diferente.\"",
+        dica:"A dor do início deve ser específica e visual. O avatar tem que se enxergar." },
+      { name:"Caso de Sucesso de Cliente", tipo:"video", funil:"meio",
+        quando:"Prova de sistema. Constrói confiança por narrativa.",
+        estrutura:"Quem era → o que tentou antes → como chegou → resultado específico",
+        hook:"\"A [Nome] chegou pra mim com [situação]. Em [X] dias, mudou.\"",
+        dica:"Resultado com número específico. Não 'melhorou' mas 'aumentou 340%'." },
+      { name:"Falha Reveladora", tipo:"video", funil:"topo",
+        quando:"Vulnerabilidade intencional. Confiança por honestidade.",
+        estrutura:"Admite erro real → aprendizado → como mudou → produto nasceu disso",
+        hook:"\"Vou te contar meu maior erro que me custou R$X — porque pode te poupar.\"",
+        dica:"A falha deve ser real. Falha inventada parece manipulação." },
+    ]
+  },
+
+  /* ───────────────── 14 ───────────────── */
+  { id:14, icon:"📋", name:"LISTICLE / TOP N", color:"#5bc8f5", tipos:["video","imagem"], funil:["topo"],
+    desc:"Lista numerada de dicas, erros ou segredos. Gera expectativa e retenção por completude.",
+    subs:[
+      { name:"\"X Erros Que Você Está Cometendo\"", tipo:"video", funil:"topo",
+        quando:"Topo de funil. Dor de incompetência → produto corrige.",
+        estrutura:"Anuncia N erros → lista rápida (erro = identificação) → produto resolve todos",
+        hook:"\"5 erros que impedem você de [resultado] (o erro 3 é o mais comum).\"",
+        dica:"O erro mais relatable deve ser o 2 ou 3 — não o último. Mantém atenção mais tempo." },
+      { name:"\"X Razões Para\"", tipo:"video", funil:"meio",
+        quando:"Justificativa racional de compra. Funciona como pré-venda.",
+        estrutura:"\"3 razões pelas quais [produto/método] é diferente\" → razão por razão → CTA",
+        hook:"\"Vou te dar 3 razões pelas quais você vai parar de perder tempo com [alternativa].\"",
+        dica:"Curto e direto. Cada razão: máximo 5 segundos de explicação." },
+      { name:"\"X Segredos Que Ninguém Te Conta\"", tipo:"video", funil:"topo",
+        quando:"Curiosidade + exclusividade. Gatilho de acesso privilegiado.",
+        estrutura:"\"X segredos que [grupo de referência] usa mas não compartilha\" → revela → produto",
+        hook:"\"Os grandes players do [nicho] usam esses 3 segredos. Vou te contar.\"",
+        dica:"Segredos devem ser reais e úteis. Não clickbait vazio." },
+    ]
+  },
+
+  /* ───────────────── 15 ───────────────── */
+  { id:15, icon:"🎯", name:"DEMONSTRAÇÃO", color:"#e63946", tipos:["video"], funil:["meio","fundo"],
+    desc:"Mostra o produto funcionando. 'Ver para crer' é o gatilho mais poderoso que existe.",
+    subs:[
+      { name:"Demo Ao Vivo (Screen Recording)", tipo:"video", funil:"meio",
+        quando:"Produtos digitais, apps, ferramentas. Prova concreta do funcionamento.",
+        estrutura:"\"Vou te mostrar ao vivo\" → gravação de tela real → resultado visível → CTA",
+        hook:"\"Abrindo minha tela agora. Veja como faço [resultado] em [tempo].\"",
+        dica:"Sem edição excessiva na demo. Erros menores humanizam e aumentam credibilidade." },
+      { name:"Tutorial Completo (Valor + Produto)", tipo:"video", funil:"meio",
+        quando:"Reciprocidade. Ensina de verdade → produto é o upgrade.",
+        estrutura:"\"Em [N] passos vou te ensinar [resultado]\" → ensina de verdade → produto acelera",
+        hook:"\"Em 4 minutos vou te mostrar como [resultado] do zero.\"",
+        dica:"Entregar valor real. O produto é o upgrade, não o gatekeeping do conhecimento." },
+      { name:"ASMR / Demonstração Sensorial", tipo:"video", funil:"topo",
+        quando:"Produto físico. Alto engajamento por curiosidade.",
+        estrutura:"Sons do produto em uso → close-up visual → texto na tela explica → CTA",
+        hook:"Imagem de close + som inesperado do produto = stop de scroll.",
+        dica:"Sem narração. O produto fala sozinho. Texto mínimo na tela." },
+    ]
+  },
+
+  /* ───────────────── 16 ───────────────── */
+  { id:16, icon:"🖼️", name:"ESTÁTICO / IMAGEM", color:"#c084fc", tipos:["imagem"], funil:["topo","meio","fundo"],
+    desc:"Imagem estática ou com animação leve. Rápido de produzir, testável em volume, muito subestimado.",
+    subs:[
+      { name:"Produto Simples + Headline Forte", tipo:"imagem", funil:"fundo",
+        quando:"Reconhecimento e e-commerce. Fundo de funil.",
+        estrutura:"Produto em destaque + headline específica + CTA visual claro",
+        hook:"Headline na imagem = hook. Única, específica, irresistível.",
+        dica:"Fundo sólido ou texturizado. Produto como herói. Sem poluição visual." },
+      { name:"Grid / Collage de Resultados", tipo:"imagem", funil:"meio",
+        quando:"Volume de prova social em uma imagem.",
+        estrutura:"2x2 ou 3x3 com prints de resultados de clientes diferentes",
+        hook:"\"[N] resultados reais. [Mês/ano].\" — legenda faz o trabalho.",
+        dica:"Paleta de cores uniforme. Prints organizados criam sensação de sistema." },
+      { name:"Meme Adaptado", tipo:"imagem", funil:"topo",
+        quando:"Alcance orgânico. Quebra o padrão visual de anúncios.",
+        estrutura:"Template de meme reconhecível + situação do nicho → produto como punchline",
+        hook:"O meme já é o hook. O nicho reconhece o template e para.",
+        dica:"Memes que o avatar viu nos últimos 7 dias. Meme velho não funciona." },
+      { name:"Comparativo em Tabela", tipo:"imagem", funil:"meio",
+        quando:"Lógica e dados. Derruba objeções visualmente.",
+        estrutura:"Coluna 'mercado comum' vs coluna 'seu produto' → ❌ e ✅",
+        hook:"\"Por que [N] pessoas estão migrando para [produto].\"",
+        dica:"Itens da tabela devem ser reais. Nunca inventar vantagens falsas." },
+    ]
+  },
+
+  /* ───────────────── 17 ───────────────── */
+  { id:17, icon:"🔁", name:"TREND HIJACK / NATIVO", color:"#fb923c", tipos:["video"], funil:["topo"],
+    desc:"Usa áudio, formato ou meme viral do momento. O algoritmo já distribui — você só encaixa a mensagem.",
+    subs:[
+      { name:"Áudio Trending + Produto", tipo:"video", funil:"topo",
+        quando:"Alcance orgânico máximo. Algoritmo favorece áudios em alta.",
+        estrutura:"Áudio trending → imagens/cenas do produto sintonizadas → texto reforça mensagem",
+        hook:"O próprio áudio trendy é o hook. Familiaridade retém o scroll.",
+        dica:"TikTok Creative Center para áudios em alta. Sincronizar viradas do áudio com viradas visuais." },
+      { name:"\"People Always Ask Me\" Format", tipo:"video", funil:"topo",
+        quando:"Trend específica do TikTok. Naturalmente viral.",
+        estrutura:"\"As pessoas sempre me perguntam, [nome], como você [resultado]? Bem, eu não sei sobre X mas sei que [produto]\"",
+        hook:"\"As pessoas sempre me perguntam como consigo [resultado desejado].\"",
+        dica:"Seguir a estrutura exata do meme. Subverter a expectativa no final com o produto." },
+      { name:"Conteúdo Nativo de Feed (Sem Cara de Anúncio)", tipo:"video", funil:"topo",
+        quando:"Máxima retenção. Sem logo, sem CTA óbvio no início.",
+        estrutura:"Abre como post normal → entrega valor puro → CTA suave no final",
+        hook:"\"3 coisas que aprendi [resultado] (sem exagero nenhum).\"",
+        dica:"Nos primeiros 5 segundos: zero marca, zero logo, zero CTA. Parece organic." },
+    ]
+  },
+
+  /* ───────────────── 18 ───────────────── */
+  { id:18, icon:"💰", name:"URGÊNCIA / OFERTA DIRETA", color:"#e63946", tipos:["video","imagem"], funil:["fundo"],
+    desc:"Formatos de fundo de funil. Escassez, preço, bônus. Para quem já conhece.",
+    subs:[
+      { name:"Escassez Real", tipo:"video", funil:"fundo",
+        quando:"Decisão de compra. Remarketing.",
+        estrutura:"Número exato de vagas/tempo → o que muda depois → CTA urgente",
+        hook:"\"Turma fecha em 6h. São 47 vagas e já foram 31.\"",
+        dica:"Só usar escassez real. Escassez falsa mata a marca." },
+      { name:"Bônus Stack", tipo:"misto", funil:"fundo",
+        quando:"Aumenta valor percebido antes do checkout.",
+        estrutura:"\"Além do produto você leva…\" → lista de bônus com valores → preço total vs preço da oferta",
+        hook:"\"Além do [produto principal], você leva [bônus 1], [bônus 2], [bônus 3]. Tudo por [preço].\"",
+        dica:"Valor dos bônus deve ser real e crível. Não inflar artificialmente." },
+      { name:"Ancoragem de Preço", tipo:"video", funil:"fundo",
+        quando:"Produto percebido como caro. Remarketing de objeção de preço.",
+        estrutura:"\"Isso custa menos que [referência diária]\" → compara valor real vs preço → CTA",
+        hook:"\"R$1,90 por dia. Menos que um café. E pode mudar sua carreira.\"",
+        dica:"Referência de comparação deve ser algo que o avatar compra sem pensar." },
+      { name:"Garantia como Hook", tipo:"video", funil:"fundo",
+        quando:"Eliminar risco percebido. Funciona como primeiro argumento, não como rodapé.",
+        estrutura:"\"Se não funcionar, devolvo 100%\" → contexto → benefícios → CTA",
+        hook:"\"Compra, usa por 7 dias. Se não gostar, devolvo cada centavo. Sem perguntas.\"",
+        dica:"Garantia no início, não no final. Inverte a lógica do risco." },
+    ]
+  },
 ];
 
-let openCards = new Set();
-let expandedSubs = new Set();
+let activeFilter = 'all';
 let searchTerm = '';
+let openCards = new Set();
+let openSubs = new Set();
 
-function render() {
+function setFilter(f, btn){
+  activeFilter = f;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  render();
+}
+
+function doSearch(){
+  searchTerm = document.getElementById('searchInput').value.toLowerCase().trim();
+  if(searchTerm) F.forEach(f => openCards.add(f.id));
+  render();
+}
+
+function toggleCard(id){
+  openCards.has(id) ? openCards.delete(id) : openCards.add(id);
+  render();
+}
+
+function toggleSub(key,e){
+  e.stopPropagation();
+  openSubs.has(key) ? openSubs.delete(key) : openSubs.add(key);
+  render();
+}
+
+function hl(t){
+  if(!searchTerm) return t;
+  return t.replace(new RegExp(`(${searchTerm.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')})`, 'gi'), '<span class="hl">$1</span>');
+}
+
+function matches(f){
+  if(activeFilter === 'video' && !f.tipos.includes('video')) return false;
+  if(activeFilter === 'imagem' && !f.tipos.includes('imagem')) return false;
+  if(activeFilter === 'misto' && !f.tipos.includes('misto')) return false;
+  if(activeFilter === 'topo' && !f.funil.includes('topo')) return false;
+  if(activeFilter === 'meio' && !f.funil.includes('meio')) return false;
+  if(activeFilter === 'fundo' && !f.funil.includes('fundo')) return false;
+  if(!searchTerm) return true;
+  return f.name.toLowerCase().includes(searchTerm) ||
+    f.desc.toLowerCase().includes(searchTerm) ||
+    f.subs.some(s => s.name.toLowerCase().includes(searchTerm) || s.quando.toLowerCase().includes(searchTerm) || s.hook.toLowerCase().includes(searchTerm));
+}
+
+function render(){
   const grid = document.getElementById('grid');
-  const term = searchTerm.toLowerCase().trim();
-
-  const filtered = FORMATS.filter(f => {
-    if (!term) return true;
-    const inName = f.name.toLowerCase().includes(term);
-    const inDesc = f.desc.toLowerCase().includes(term);
-    const inSubs = f.subs.some(s =>
-      s.name.toLowerCase().includes(term) ||
-      s.estrutura.toLowerCase().includes(term) ||
-      s.quando.toLowerCase().includes(term) ||
-      s.hook.toLowerCase().includes(term) ||
-      s.dica.toLowerCase().includes(term)
-    );
-    return inName || inDesc || inSubs;
-  });
-
+  const filtered = F.filter(matches);
   grid.innerHTML = '';
 
-  if (filtered.length === 0) {
-    grid.innerHTML = '<div class="empty">Nenhum formato encontrado para "' + searchTerm + '"</div>';
+  if(!filtered.length){
+    grid.innerHTML = '<div class="empty">Nenhum formato encontrado.</div>';
     return;
-  }
-
-  // Open all cards when searching
-  if (term) {
-    filtered.forEach(f => openCards.add(f.id));
   }
 
   filtered.forEach(f => {
     const isOpen = openCards.has(f.id);
-    const card = document.createElement('div');
-    card.className = 'format-card' + (isOpen ? ' open' : '');
-    card.style.setProperty('--card-color', f.color);
+    const div = document.createElement('div');
+    div.className = 'fcard' + (isOpen ? ' open' : '');
 
-    const subsHtml = f.subs.map((s, si) => {
-      const subId = `${f.id}-${si}`;
-      const isExpanded = expandedSubs.has(subId);
-      const tipoPill = `<span class="pill pill-${s.tipo}">${s.tipo}</span>`;
-      return `
-        <div class="sub-item${isExpanded ? ' expanded' : ''}" onclick="toggleSub(${f.id},${si},event)">
-          <div class="sub-header">
-            <div class="sub-num-name">
-              <span class="sub-n">0${si+1}</span>
-              <span class="sub-name">${hl(s.name, term)}</span>
-            </div>
-            <span class="sub-expand-icon">▾</span>
-          </div>
-          <div class="sub-detail">
-            <div class="detail-row">${tipoPill}</div>
-            <div class="detail-row">
-              <div class="detail-key">Quando usar</div>
-              <div class="detail-val">${hl(s.quando, term)}</div>
-            </div>
-            <div class="detail-row">
-              <div class="detail-key">Estrutura do vídeo</div>
-              <div class="detail-val">${hl(s.estrutura, term)}</div>
-            </div>
-            <div class="detail-row">
-              <div class="detail-key">Hook exemplo</div>
-              <div class="hook-box">${hl(s.hook, term)}</div>
-            </div>
-            <div class="detail-row">
-              <div class="detail-key">Dica de produção</div>
-              <div class="detail-val">${hl(s.dica, term)}</div>
-            </div>
-          </div>
-        </div>`;
+    const subsHtml = f.subs.map((s,i) => {
+      const key = `${f.id}-${i}`;
+      const isSubOpen = openSubs.has(key);
+      return `<div class="sub-item${isSubOpen?' open':''}" onclick="toggleSub('${key}',event)">
+        <div class="sub-row">
+          <span class="sub-nn">0${i+1}</span>
+          <span class="sub-name">${hl(s.name)}</span>
+          <span class="sub-arr">▾</span>
+        </div>
+        <div class="sub-body">
+          <div class="drow"><span class="tipo-pill t-${s.tipo}">${s.tipo}</span></div>
+          <div class="drow"><span class="dk">Quando usar</span><span class="dv">${hl(s.quando)}</span></div>
+          <div class="drow"><span class="dk">Estrutura</span><span class="dv">${hl(s.estrutura)}</span></div>
+          <div class="drow"><span class="dk">Hook exemplo</span><div class="hook-box" style="border-left-color:${f.color}">${hl(s.hook)}</div></div>
+          <div class="drow"><span class="dk">Dica de produção</span><span class="dv">${hl(s.dica)}</span></div>
+        </div>
+      </div>`;
     }).join('');
 
-    card.innerHTML = `
-      <div class="format-header" onclick="toggleCard(${f.id})">
-        <div class="format-top-row">
-          <span class="format-num">FORMATO ${String(f.id).padStart(2,'0')}</span>
-          <span class="format-icon">${f.icon}</span>
+    div.innerHTML = `
+      <div class="fcard-top-bar" style="--c:${f.color}"></div>
+      <div class="fcard-header" onclick="toggleCard(${f.id})">
+        <div class="fcard-toprow">
+          <span class="fcard-num" style="color:${f.color}">FORMATO ${String(f.id).padStart(2,'0')}</span>
+          <span class="fcard-icon">${f.icon}</span>
         </div>
-        <div class="format-name">${hl(f.name, term)}</div>
-        <div class="format-desc">${hl(f.desc, term)}</div>
-        <div class="format-meta">
+        <div class="fcard-name">${hl(f.name)}</div>
+        <div class="fcard-desc">${hl(f.desc)}</div>
+        <div class="fcard-footer">
           <span class="sub-count">${f.subs.length} sub-formatos</span>
-          <span class="toggle-icon">▾</span>
+          <span class="toggle-arrow">▾</span>
         </div>
       </div>
-      <div class="sub-list">${subsHtml}</div>
-    `;
+      <div class="sub-list">${subsHtml}</div>`;
 
-    grid.appendChild(card);
+    grid.appendChild(div);
   });
-}
-
-function hl(text, term) {
-  if (!term) return text;
-  const regex = new RegExp(`(${term.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')})`, 'gi');
-  return text.replace(regex, '<span class="hl">$1</span>');
-}
-
-function toggleCard(id) {
-  if (openCards.has(id)) {
-    openCards.delete(id);
-  } else {
-    openCards.add(id);
-  }
-  render();
-}
-
-function toggleSub(fid, si, e) {
-  e.stopPropagation();
-  const subId = `${fid}-${si}`;
-  if (expandedSubs.has(subId)) {
-    expandedSubs.delete(subId);
-  } else {
-    expandedSubs.add(subId);
-  }
-  render();
-}
-
-function doSearch() {
-  searchTerm = document.getElementById('searchInput').value;
-  render();
 }
 
 render();
